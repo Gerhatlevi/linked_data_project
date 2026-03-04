@@ -1,0 +1,303 @@
+@prefix schema: <http://schema.org/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+<http://data.ldsw.utwente/most_popular_record_0> schema:category "Films (English)";
+dbo:rank "1"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Red Notice";
+<http://www.loc.gov/mads/rdf/v1#hours> "454200000";
+schema:runtime "1.9667";
+<http://rdfs.org/sioc/ns#num_views> "230900000";
+schema:sameAs <http://data.ldsw.utwente/tt7991608> .
+<http://data.ldsw.utwente/most_popular_record_1> schema:category "Films (English)";
+dbo:rank "2"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Don't Look Up";
+<http://www.loc.gov/mads/rdf/v1#hours> "408600000";
+schema:runtime "2.3833";
+<http://rdfs.org/sioc/ns#num_views> "171400000";
+schema:sameAs <http://data.ldsw.utwente/tt11286314> .
+<http://data.ldsw.utwente/most_popular_record_2> schema:category "Films (English)";
+dbo:rank "3"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "The Adam Project";
+<http://www.loc.gov/mads/rdf/v1#hours> "281000000";
+schema:runtime "1.7833";
+<http://rdfs.org/sioc/ns#num_views> "157600000";
+schema:sameAs <http://data.ldsw.utwente/tt2463208> .
+<http://data.ldsw.utwente/most_popular_record_3> schema:category "Films (English)";
+dbo:rank "4"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Bird Box";
+<http://www.loc.gov/mads/rdf/v1#hours> "325300000";
+schema:runtime "2.0667";
+<http://rdfs.org/sioc/ns#num_views> "157400000";
+schema:sameAs <http://data.ldsw.utwente/tt2737304> .
+<http://data.ldsw.utwente/most_popular_record_4> schema:category "Films (English)";
+dbo:rank "5"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "The Gray Man";
+<http://www.loc.gov/mads/rdf/v1#hours> "299500000";
+schema:runtime "2.15";
+<http://rdfs.org/sioc/ns#num_views> "139300000";
+schema:sameAs <http://data.ldsw.utwente/tt1649418> .
+<http://data.ldsw.utwente/most_popular_record_5> schema:category "Films (English)";
+dbo:rank "6"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "We Can Be Heroes";
+<http://www.loc.gov/mads/rdf/v1#hours> "231200000";
+schema:runtime "1.6833";
+<http://rdfs.org/sioc/ns#num_views> "137300000";
+schema:sameAs <http://data.ldsw.utwente/tt10600398> .
+<http://data.ldsw.utwente/most_popular_record_6> schema:category "Films (English)";
+dbo:rank "7"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "The Mother";
+schema:runtime "1.95";
+<http://www.loc.gov/mads/rdf/v1#hours> "265900000";
+<http://rdfs.org/sioc/ns#num_views> "136400000";
+schema:sameAs <http://data.ldsw.utwente/tt6968614> .
+<http://data.ldsw.utwente/most_popular_record_7> dbo:rank "8"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Glass Onion: A Knives Out Mystery";
+<http://www.loc.gov/mads/rdf/v1#hours> "320300000";
+schema:runtime "2.35";
+schema:category "Films (English)";
+<http://rdfs.org/sioc/ns#num_views> "136300000" .
+<http://data.ldsw.utwente/most_popular_record_8> schema:runtime "1.9667";
+<http://rdfs.org/sioc/ns#num_views> "135700000";
+schema:sameAs <http://data.ldsw.utwente/tt8936646>;
+schema:category "Films (English)";
+dbo:rank "9"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Extraction";
+<http://www.loc.gov/mads/rdf/v1#hours> "266900000" .
+<http://data.ldsw.utwente/most_popular_record_9> schema:category "Films (English)";
+dbo:rank "10"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Extraction 2";
+<http://www.loc.gov/mads/rdf/v1#hours> "278700000";
+schema:runtime "2.0667";
+<http://rdfs.org/sioc/ns#num_views> "134900000";
+schema:sameAs <http://data.ldsw.utwente/tt12263384> .
+<http://data.ldsw.utwente/most_popular_record_10> dbo:rank "1"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Troll";
+schema:category "Films (Non-English)";
+<http://www.loc.gov/mads/rdf/v1#hours> "178600000";
+schema:runtime "1.7333";
+<http://rdfs.org/sioc/ns#num_views> "103000000";
+schema:sameAs <http://data.ldsw.utwente/tt11116912> .
+<http://data.ldsw.utwente/most_popular_record_11> dbo:rank "2"^^<http://www.w3.org/2001/XMLSchema#int>;
+<http://www.loc.gov/mads/rdf/v1#hours> "152000000";
+schema:title "Nowhere";
+schema:category "Films (Non-English)";
+schema:runtime "1.8167";
+<http://rdfs.org/sioc/ns#num_views> "83700000";
+schema:sameAs <http://data.ldsw.utwente/tt15789472> .
+<http://data.ldsw.utwente/most_popular_record_12> schema:category "Films (Non-English)";
+dbo:rank "3"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "The Platform";
+<http://www.loc.gov/mads/rdf/v1#hours> "129700000";
+schema:runtime "1.5667";
+<http://rdfs.org/sioc/ns#num_views> "82800000";
+schema:sameAs <http://data.ldsw.utwente/tt8228288> .
+<http://data.ldsw.utwente/most_popular_record_13> schema:category "Films (Non-English)";
+dbo:rank "4"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Through My Window";
+<http://www.loc.gov/mads/rdf/v1#hours> "116000000";
+schema:runtime "1.9";
+<http://rdfs.org/sioc/ns#num_views> "61100000";
+schema:sameAs <http://data.ldsw.utwente/tt14463484> .
+<http://data.ldsw.utwente/most_popular_record_14> schema:category "Films (Non-English)";
+dbo:rank "5"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "AKA";
+<http://www.loc.gov/mads/rdf/v1#hours> "125900000";
+schema:runtime "2.0667";
+<http://rdfs.org/sioc/ns#num_views> "60900000";
+schema:sameAs <http://data.ldsw.utwente/tt0317052> .
+<http://data.ldsw.utwente/most_popular_record_15> schema:category "Films (Non-English)";
+dbo:rank "6"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Blood Red Sky";
+<http://www.loc.gov/mads/rdf/v1#hours> "124800000";
+schema:runtime "2.05";
+<http://rdfs.org/sioc/ns#num_views> "60900000";
+schema:sameAs <http://data.ldsw.utwente/tt6402468> .
+<http://data.ldsw.utwente/most_popular_record_16> schema:category "Films (Non-English)";
+dbo:rank "7"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "My Name Is Vendetta";
+<http://www.loc.gov/mads/rdf/v1#hours> "86500000";
+schema:runtime "1.5333";
+<http://rdfs.org/sioc/ns#num_views> "56400000";
+schema:sameAs <http://data.ldsw.utwente/tt15229674> .
+<http://data.ldsw.utwente/most_popular_record_17> schema:category "Films (Non-English)";
+dbo:rank "8"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Black Crab";
+<http://www.loc.gov/mads/rdf/v1#hours> "103300000";
+schema:runtime "1.9167";
+<http://rdfs.org/sioc/ns#num_views> "53900000";
+schema:sameAs <http://data.ldsw.utwente/tt6708668> .
+<http://data.ldsw.utwente/most_popular_record_18> schema:sameAs <http://data.ldsw.utwente/tt1016150>;
+schema:category "Films (Non-English)";
+dbo:rank "9"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "All Quiet on the Western Front";
+<http://www.loc.gov/mads/rdf/v1#hours> "129400000";
+schema:runtime "2.4833";
+<http://rdfs.org/sioc/ns#num_views> "52100000" .
+<http://data.ldsw.utwente/most_popular_record_19> dbo:rank "10"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Below Zero";
+<http://www.loc.gov/mads/rdf/v1#hours> "86700000";
+schema:category "Films (Non-English)";
+schema:runtime "1.7833";
+<http://rdfs.org/sioc/ns#num_views> "48600000";
+schema:sameAs <http://data.ldsw.utwente/tt9845564> .
+<http://data.ldsw.utwente/most_popular_record_20> dbo:rank "1"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Wednesday";
+schema:season "Wednesday: Season 1";
+schema:category "TV (English)";
+<http://www.loc.gov/mads/rdf/v1#hours> "1718800000";
+schema:runtime "6.8167";
+<http://rdfs.org/sioc/ns#num_views> "252100000";
+schema:sameAs <http://data.ldsw.utwente/tt13443470> .
+<http://data.ldsw.utwente/most_popular_record_21> schema:category "TV (English)";
+dbo:rank "2"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Stranger Things";
+schema:season "Stranger Things 4";
+<http://www.loc.gov/mads/rdf/v1#hours> "1838000000";
+schema:runtime "13.0667";
+<http://rdfs.org/sioc/ns#num_views> "140700000";
+schema:sameAs <http://data.ldsw.utwente/tt4574334> .
+<http://data.ldsw.utwente/most_popular_record_22> dbo:rank "3"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:category "TV (English)";
+schema:title "DAHMER";
+schema:season "DAHMER: Monster: The Jeffrey Dahmer Story";
+<http://www.loc.gov/mads/rdf/v1#hours> "1031100000";
+schema:runtime "8.9167";
+<http://rdfs.org/sioc/ns#num_views> "115600000" .
+<http://data.ldsw.utwente/most_popular_record_23> schema:sameAs <http://data.ldsw.utwente/tt8740790>;
+schema:category "TV (English)";
+dbo:rank "4"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Bridgerton";
+schema:season "Bridgerton: Season 1";
+<http://www.loc.gov/mads/rdf/v1#hours> "929300000";
+schema:runtime "8.2";
+<http://rdfs.org/sioc/ns#num_views> "113300000" .
+<http://data.ldsw.utwente/most_popular_record_24> schema:category "TV (English)";
+dbo:rank "5"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "The Queen's Gambit";
+schema:season "The Queen's Gambit: Limited Series";
+<http://www.loc.gov/mads/rdf/v1#hours> "746400000";
+schema:runtime "6.6167";
+<http://rdfs.org/sioc/ns#num_views> "112800000";
+schema:sameAs <http://data.ldsw.utwente/tt10048342> .
+<http://data.ldsw.utwente/most_popular_record_25> schema:category "TV (English)";
+dbo:rank "6"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "The Night Agent";
+schema:season "The Night Agent: Season 1";
+<http://www.loc.gov/mads/rdf/v1#hours> "803200000";
+schema:runtime "8.1833";
+<http://rdfs.org/sioc/ns#num_views> "98200000";
+schema:sameAs <http://data.ldsw.utwente/tt13918776> .
+<http://data.ldsw.utwente/most_popular_record_26> schema:category "TV (English)";
+dbo:rank "7"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Stranger Things";
+schema:season "Stranger Things 3";
+<http://www.loc.gov/mads/rdf/v1#hours> "716100000";
+schema:runtime "7.55";
+<http://rdfs.org/sioc/ns#num_views> "94800000";
+schema:sameAs <http://data.ldsw.utwente/tt4574334> .
+<http://data.ldsw.utwente/most_popular_record_27> schema:category "TV (English)";
+dbo:rank "8"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Bridgerton";
+schema:season "Bridgerton: Season 2";
+<http://www.loc.gov/mads/rdf/v1#hours> "797200000";
+schema:runtime "8.5";
+<http://rdfs.org/sioc/ns#num_views> "93800000";
+schema:sameAs <http://data.ldsw.utwente/tt8740790> .
+<http://data.ldsw.utwente/most_popular_record_28> schema:category "TV (English)";
+dbo:rank "9"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "The Witcher";
+schema:season "The Witcher: Season 1";
+<http://www.loc.gov/mads/rdf/v1#hours> "663600000";
+schema:runtime "8.0";
+<http://rdfs.org/sioc/ns#num_views> "83000000";
+schema:sameAs <http://data.ldsw.utwente/tt5180504> .
+<http://data.ldsw.utwente/most_popular_record_29> dbo:rank "10"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Queen Charlotte: A Bridgerton Story";
+schema:category "TV (English)";
+<http://www.loc.gov/mads/rdf/v1#hours> "526800000";
+schema:runtime "6.4833";
+<http://rdfs.org/sioc/ns#num_views> "81300000";
+schema:sameAs <http://data.ldsw.utwente/tt14661396> .
+<http://data.ldsw.utwente/most_popular_record_30> schema:category "TV (Non-English)";
+dbo:rank "1"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Squid Game";
+schema:season "Squid Game: Season 1";
+<http://www.loc.gov/mads/rdf/v1#hours> "2205200000";
+schema:runtime "8.3167";
+<http://rdfs.org/sioc/ns#num_views> "265200000";
+schema:sameAs <http://data.ldsw.utwente/tt10919420> .
+<http://data.ldsw.utwente/most_popular_record_31> schema:category "TV (Non-English)";
+dbo:rank "2"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Money Heist";
+schema:season "Money Heist: Part 4";
+<http://www.loc.gov/mads/rdf/v1#hours> "710200000";
+schema:runtime "6.7";
+<http://rdfs.org/sioc/ns#num_views> "106000000";
+schema:sameAs <http://data.ldsw.utwente/tt6468322> .
+<http://data.ldsw.utwente/most_popular_record_32> schema:category "TV (Non-English)";
+dbo:rank "3"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Lupin";
+schema:season "Lupin: Part 1";
+<http://www.loc.gov/mads/rdf/v1#hours> "396300000";
+schema:runtime "3.9833";
+<http://rdfs.org/sioc/ns#num_views> "99500000";
+schema:sameAs <http://data.ldsw.utwente/tt1018841> .
+<http://data.ldsw.utwente/most_popular_record_33> schema:category "TV (Non-English)";
+dbo:rank "4"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Money Heist";
+schema:season "Money Heist: Part 5";
+<http://www.loc.gov/mads/rdf/v1#hours> "900700000";
+schema:runtime "9.0833";
+<http://rdfs.org/sioc/ns#num_views> "99200000";
+schema:sameAs <http://data.ldsw.utwente/tt6468322> .
+<http://data.ldsw.utwente/most_popular_record_34> schema:category "TV (Non-English)";
+dbo:rank "5"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Money Heist";
+schema:season "Money Heist: Part 3";
+<http://www.loc.gov/mads/rdf/v1#hours> "519800000";
+schema:runtime "6.5";
+<http://rdfs.org/sioc/ns#num_views> "80000000";
+schema:sameAs <http://data.ldsw.utwente/tt6468322> .
+<http://data.ldsw.utwente/most_popular_record_35> schema:category "TV (Non-English)";
+dbo:rank "6"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Lupin";
+schema:season "Lupin: Part 2";
+<http://www.loc.gov/mads/rdf/v1#hours> "258900000";
+schema:runtime "3.7833";
+<http://rdfs.org/sioc/ns#num_views> "68400000";
+schema:sameAs <http://data.ldsw.utwente/tt1018841> .
+<http://data.ldsw.utwente/most_popular_record_36> schema:category "TV (Non-English)";
+dbo:rank "7"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Who Killed Sara?";
+schema:season "Who Killed Sara?: Season 1";
+<http://www.loc.gov/mads/rdf/v1#hours> "392400000";
+schema:runtime "6.7167";
+<http://rdfs.org/sioc/ns#num_views> "58400000";
+schema:sameAs <http://data.ldsw.utwente/tt11937816> .
+<http://data.ldsw.utwente/most_popular_record_37> schema:runtime "12.2333";
+schema:sameAs <http://data.ldsw.utwente/tt14169960>;
+<http://rdfs.org/sioc/ns#num_views> "55500000";
+schema:title "All of Us Are Dead";
+schema:season "All of Us Are Dead: Season 1";
+<http://www.loc.gov/mads/rdf/v1#hours> "679300000";
+schema:category "TV (Non-English)";
+dbo:rank "8"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://data.ldsw.utwente/most_popular_record_38> schema:category "TV (Non-English)";
+dbo:rank "9"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Dear Child";
+schema:season "Dear Child: Limited Series";
+<http://www.loc.gov/mads/rdf/v1#hours> "245400000";
+schema:runtime "4.8167";
+<http://rdfs.org/sioc/ns#num_views> "50900000";
+schema:sameAs <http://data.ldsw.utwente/tt20863760> .
+<http://data.ldsw.utwente/most_popular_record_39> schema:runtime "6.7";
+schema:sameAs <http://data.ldsw.utwente/tt7134908>;
+<http://rdfs.org/sioc/ns#num_views> "50000000";
+schema:category "TV (Non-English)";
+dbo:rank "10"^^<http://www.w3.org/2001/XMLSchema#int>;
+schema:title "Elite";
+schema:season "Elite: Season 3";
+<http://www.loc.gov/mads/rdf/v1#hours> "334800000" .

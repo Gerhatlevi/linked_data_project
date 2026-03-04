@@ -53,6 +53,7 @@ def find_best_match(row):
     return best["tconst"]
 
 netflix_df["imdb_tconst"] = netflix_df.apply(find_best_match, axis=1)
+netflix_df = netflix_df[netflix_df["imdb_tconst"].notna()]
 
 netflix_df = netflix_df.drop(columns=["match_title", "expected_type", "runtime_minutes"])
 
