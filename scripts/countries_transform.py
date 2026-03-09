@@ -13,7 +13,7 @@ def extract_viewership(at_rank):
     return result
 
 
-df = pd.read_csv("countries-with-imdb.csv", encoding="latin-1")
+df = pd.read_csv("../data_files/countries-with-imdb.csv", encoding="latin-1")
 
 # Create the row indices, one for each week's best movie/TV, per country
 weeks = df["week"].unique()
@@ -56,5 +56,5 @@ for index, row in output.iterrows():
     row['country'] = country
     output.loc[index] = row
 
-output.to_csv("countries_reformatted.csv", index=False)
+output.to_csv("../data_filescountries_reformatted.csv", index=False)
 

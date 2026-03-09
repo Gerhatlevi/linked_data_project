@@ -3,9 +3,9 @@ import pandas as pd
 import re
 
 # --- FILE PATHS ---
-netflix_file = "all-weeks-global.csv"
-imdb_file = "filtered_title_basics.tsv"
-output_file = "global-with-imdb.csv"
+netflix_file = "../all-weeks-global.csv"
+imdb_file = "../data_files/filtered_title_basics.tsv"
+output_file = "../data_files/global-with-imdb.csv"
 
 
 

@@ -3,9 +3,9 @@ import pandas as pd
 import re
 
 # --- FILE PATHS ---
-netflix_file = "all-weeks-countries.csv" # Az új országos fájlod
-imdb_file = "filtered_title_basics.tsv"
-output_file = "countries-with-imdb.csv"
+netflix_file = "../all-weeks-countries.csv" # Az új országos fájlod
+imdb_file = "../data_files/filtered_title_basics.tsv"
+output_file = "../data_files/countries-with-imdb.csv"
 
 
 # --- LOAD DATA ---
