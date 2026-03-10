@@ -25,7 +25,7 @@ for week in weeks:
     row_indices.append(week + '_TV_English')
     row_indices.append(week + '_TV_Non-English')
 
-columns = ['week']
+columns = ['week', 'category', 'language']
 # Create the columns, 20 for each week, the movie/show at each rank + viewership at each rank
 for rank in range(1, 11):
     columns.append('at_rank' + str(rank))
@@ -48,6 +48,8 @@ for index, row in output.iterrows():
             row['at_rank' + str(rank)] = at_rank['imdb_tconst'].values[0]
             row['views_at_rank' + str(rank)] = extract_viewership(at_rank)
     row['week'] = week
+    row['category'] = attrs[1]
+    row['language'] = attrs[2]
 
-output.to_csv("../data_files/global_reformatted.csv", index=False)
+output.to_csv("../data_files/global_reformatted.csv")
 

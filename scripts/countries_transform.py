@@ -1,3 +1,5 @@
+import string
+
 import pandas as pd
 import numpy as np
 
@@ -25,7 +27,7 @@ for week in weeks:
         row_indices.append(f'{week}_{country}_TV')
 
 
-columns = ['week', 'country']
+columns = ['week', 'country', 'category']
 # Create the columns, 20 for each week, the movie/show at each rank + cumulative weeks in top 10
 for rank in range(1, 11):
     columns.append('at_rank' + str(rank))
@@ -53,8 +55,12 @@ for index, row in output.iterrows():
             # print(at_rank['imdb_tconst'].values[0])
             # print(at_rank['cumulative_weeks_in_top_10'].values[0])
     row['week'] = week
+    country = country.replace(' ', '_')
     row['country'] = country
+    row['category'] = category
     output.loc[index] = row
 
-output.to_csv("../data_filescountries_reformatted.csv", index=False)
+new_index = pd.Series({i: i.replace(' ', '_') for i in output.index})
+output.index = new_index
+output.to_csv("../data_files/countries_reformatted.csv")
 
