@@ -30,7 +30,7 @@ def clean_most_popular(input_path, output_path):
 
 def clean_countries(input_path, output_path):
     df = pd.read_csv(input_path, low_memory=False)
-    # df = df.drop(columns=['cumulative_weeks_in_top_10'], errors='ignore')
+    df = df.drop(columns=['cumulative_weeks_in_top_10'], errors='ignore')
     df.to_csv(output_path, index=False, encoding='utf-8')
 
 
