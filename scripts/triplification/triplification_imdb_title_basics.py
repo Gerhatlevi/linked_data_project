@@ -2,7 +2,7 @@ import pandas as pd
 from rdflib import Graph, Literal, RDF, Namespace
 from rdflib.namespace import XSD
 
-df = pd.read_csv('C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\filtered_title_basics.tsv', sep='\t', na_values=r'\N')
+df = pd.read_csv('C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\used\\filtered_title_basics.tsv', sep='\t', na_values=r'\N')
 
 g = Graph()
 schema = Namespace("http://schema.org/")
@@ -14,7 +14,7 @@ g.bind("mydata", mydata)
 for _, row in df.iterrows():
     subject = mydata[row['tconst']]
     
-    g.add((subject, RDF.type, schema.Movie))
+    g.add((subject, RDF.type, Literal(row['titleType'])))
     g.add((subject, schema.name, Literal(row['primaryTitle'])))
     
     if pd.notna(row['originalTitle']):
@@ -29,4 +29,4 @@ for _, row in df.iterrows():
     if pd.notna(row['genres']):
         g.add((subject, schema.genre, Literal(row['genres'])))
 
-g.serialize(destination='C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\RDFs\\imdb_titles.ttl', format='turtle')
+g.serialize(destination='C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\RDFs\\used\\imdb_titles.ttl', format='turtle')
