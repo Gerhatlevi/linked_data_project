@@ -1,5 +1,5 @@
 import pandas as pd
-from rdflib import Graph, Literal, Namespace, RDF
+from rdflib import OWL, Graph, Literal, Namespace, RDF, URIRef
 from rdflib.namespace import XSD
 
 df = pd.read_csv('C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\used\\box_office_with-imdb.csv')
@@ -10,6 +10,18 @@ MYDATA = Namespace("http://mydata.utwente.org/movies/")
 
 g.bind("schema", SCHEMA, override=True)
 g.bind("mydata", MYDATA)
+
+ontology_uri = URIRef("http://mydata.utwente.org/movies/box-office")
+g.add((ontology_uri, RDF.type, OWL.Ontology))
+
+boxoffice_class = MYDATA.BoxOfficeRecord
+g.add((boxoffice_class, RDF.type, OWL.Class))
+
+data_props = [SCHEMA.position, SCHEMA.Date, SCHEMA.revenue, SCHEMA.interactionCount, SCHEMA.publisher]
+for prop in data_props:
+    g.add((prop, RDF.type, OWL.DatatypeProperty))
+
+g.add((SCHEMA.about, RDF.type, OWL.ObjectProperty))
 
 def clean_num(value):
     if pd.isna(value) or str(value).strip() in ('-', ''):
@@ -23,6 +35,9 @@ def clean_num(value):
 for row in df.itertuples(index=False):
     record_id = f"boxoffice_{row.imdb_tconst}_{row.date}"
     subject = MYDATA[record_id]
+
+    g.add((subject, RDF.type, OWL.NamedIndividual))
+    g.add((subject, RDF.type, boxoffice_class))
 
     g.add((subject, SCHEMA.about, MYDATA[str(row.imdb_tconst)]))
     g.add((subject, SCHEMA.position, Literal(int(row.td), datatype=XSD.integer)))

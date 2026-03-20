@@ -1,15 +1,29 @@
 import pandas as pd
-from rdflib import Graph, Literal, Namespace
-from rdflib.namespace import XSD
+from rdflib import Graph, Literal, Namespace, URIRef
+from rdflib.namespace import OWL, RDF, XSD
 
-df = pd.read_csv('C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\filtered_title_episodes.tsv', sep='\t', na_values=r'\N')
+df = pd.read_csv('C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\used\\filtered_title_episodes.tsv', sep='\t', na_values=r'\N')
 
 g = Graph()
 SCHEMA = Namespace("http://schema.org/")
 MYDATA = Namespace("http://mydata.utwente.org/movies/")
 
+ontology_uri = URIRef("http://mydata.utwente.org/movies/")
+g.add((ontology_uri, RDF.type, OWL.Ontology))
+
+content_class = MYDATA.Content
+g.add((content_class, RDF.type, OWL.Class))
+
+g.add((SCHEMA.seasonNumber, RDF.type, OWL.DatatypeProperty))
+g.add((SCHEMA.episodeNumber, RDF.type, OWL.DatatypeProperty))
+
+g.add((SCHEMA.isPartOf, RDF.type, OWL.ObjectProperty))
+
 for row in df.itertuples(index=False):
     subject = MYDATA[str(row.tconst)]
+
+    g.add((subject, RDF.type, OWL.NamedIndividual))
+    g.add((subject, RDF.type, content_class))
     
     if pd.notna(row.parentTconst):
         g.add((subject, SCHEMA.isPartOf, MYDATA[str(row.parentTconst)]))
@@ -23,4 +37,4 @@ for row in df.itertuples(index=False):
 g.bind("schema", SCHEMA, override=True)
 g.bind("mydata", MYDATA, override=True)
 
-g.serialize(destination='C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\RDFs\\imdb_episodes.ttl', format="turtle")
+g.serialize(destination='C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\RDFs\\used\\imdb_episodes.ttl', format="turtle")

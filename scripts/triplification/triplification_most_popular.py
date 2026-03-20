@@ -10,7 +10,7 @@ MYDATA = Namespace("http://mydata.utwente.org/movies/")
 g.bind("schema", SCHEMA, override=True)
 g.bind("mydata", MYDATA)
 
-ontology_uri = URIRef("http://mydata.utwente.org/movies/")
+ontology_uri = URIRef("http://mydata.utwente.org/movies/netflix-most-popular")
 g.add((ontology_uri, RDF.type, OWL.Ontology))
 
 popularity_class = MYDATA.PopularityRecord

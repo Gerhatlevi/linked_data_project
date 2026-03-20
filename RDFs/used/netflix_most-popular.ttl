@@ -3,8 +3,6 @@
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-mydata: a owl:Ontology .
-
 mydata:most_popular_tt0317052 a mydata:PopularityRecord,
         owl:NamedIndividual ;
     schema1:about mydata:tt0317052 ;
@@ -296,6 +294,8 @@ mydata:most_popular_tt9845564 a mydata:PopularityRecord,
     schema1:interactionCount 48600000 ;
     schema1:name "Below Zero" ;
     schema1:position 10 .
+
+mydata:netflix-most-popular a owl:Ontology .
 
 schema1:about a owl:ObjectProperty .
 
