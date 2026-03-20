@@ -1,6 +1,6 @@
 import pandas as pd
-from rdflib import Graph, Literal, Namespace, RDF
-from rdflib.namespace import XSD
+from rdflib import Graph, Literal, Namespace, RDF, OWL, URIRef
+from rdflib.namespace import  XSD
 df = pd.read_csv('C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\used\\most-popular-with-imdb.csv', low_memory=False)
 
 g = Graph()
@@ -10,9 +10,24 @@ MYDATA = Namespace("http://mydata.utwente.org/movies/")
 g.bind("schema", SCHEMA, override=True)
 g.bind("mydata", MYDATA)
 
+ontology_uri = URIRef("http://mydata.utwente.org/movies/")
+g.add((ontology_uri, RDF.type, OWL.Ontology))
+
+popularity_class = MYDATA.PopularityRecord
+g.add((popularity_class, RDF.type, OWL.Class))
+
+data_props = [SCHEMA.category, SCHEMA.position, SCHEMA.name, SCHEMA.alternateName, SCHEMA.interactionCount]
+for prop in data_props:
+    g.add((prop, RDF.type, OWL.DatatypeProperty))
+
+g.add((SCHEMA.about, RDF.type, OWL.ObjectProperty))
+
 for row in df.itertuples(index=False):
     record_id = f"most_popular_{row.imdb_tconst}"
     subject = MYDATA[record_id]
+
+    g.add((subject, RDF.type, OWL.NamedIndividual))
+    g.add((subject, RDF.type, popularity_class))
 
     g.add((subject, SCHEMA.about, MYDATA[str(row.imdb_tconst)]))
 
@@ -24,7 +39,8 @@ for row in df.itertuples(index=False):
         g.add((subject, SCHEMA.alternateName, Literal(row.season_title)))
     
     if pd.notna(row.views_first_91_days):
-        g.add((subject, SCHEMA.interactionCount, Literal(int(row.views_first_91_days), datatype=XSD.integer)))
+        val = int(row.views_first_91_days)
+        g.add((subject, SCHEMA.interactionCount, Literal(val, datatype=XSD.integer)))
 
 output_path = 'C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\RDFs\\used\\netflix_most-popular.ttl'
 g.serialize(destination=output_path, format="turtle")

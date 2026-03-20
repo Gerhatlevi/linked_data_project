@@ -15,10 +15,21 @@ g.bind("mydata", mydata)
 ontology_uri = URIRef("http://mydata.utwente.org/movies/")
 g.add((ontology_uri, RDF.type, OWL.Ontology))
 
+content_class = mydata.Content
+g.add((content_class, RDF.type, OWL.Class))
+
+properties = [
+    schema.additionalType, schema.name, schema.alternateName, 
+    schema.datePublished, schema.duration, schema.genre
+]
+for prop in properties:
+    g.add((prop, RDF.type, OWL.DatatypeProperty))
+
 for _, row in df.iterrows():
     subject = mydata[row['tconst']]
 
     g.add((subject, RDF.type, OWL.NamedIndividual))
+    g.add((subject, RDF.type, content_class))
     
     g.add((subject, schema.additionalType, Literal(row['titleType'])))
     g.add((subject, schema.name, Literal(row['primaryTitle'])))
