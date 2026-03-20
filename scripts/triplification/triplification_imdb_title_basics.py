@@ -1,5 +1,5 @@
 import pandas as pd
-from rdflib import Graph, Literal, RDF, Namespace
+from rdflib import Graph, Literal, RDF, Namespace, OWL, URIRef
 from rdflib.namespace import XSD
 
 df = pd.read_csv('C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\used\\filtered_title_basics.tsv', sep='\t', na_values=r'\N')
@@ -7,12 +7,18 @@ df = pd.read_csv('C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_d
 g = Graph()
 schema = Namespace("http://schema.org/")
 mydata = Namespace("http://mydata.utwente.org/movies/")
+owl = Namespace("http://www.w3.org/2002/07/owl#")
 
 g.bind("schema", schema, override=True)
 g.bind("mydata", mydata)
 
+ontology_uri = URIRef("http://mydata.utwente.org/movies/")
+g.add((ontology_uri, RDF.type, OWL.Ontology))
+
 for _, row in df.iterrows():
     subject = mydata[row['tconst']]
+
+    g.add((subject, RDF.type, OWL.NamedIndividual))
     
     g.add((subject, schema.additionalType, Literal(row['titleType'])))
     g.add((subject, schema.name, Literal(row['primaryTitle'])))
