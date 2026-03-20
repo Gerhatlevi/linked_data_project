@@ -14,7 +14,7 @@ g.bind("mydata", mydata)
 for _, row in df.iterrows():
     subject = mydata[row['tconst']]
     
-    g.add((subject, RDF.type, Literal(row['titleType'])))
+    g.add((subject, schema.additionalType, Literal(row['titleType'])))
     g.add((subject, schema.name, Literal(row['primaryTitle'])))
     
     if pd.notna(row['originalTitle']):
