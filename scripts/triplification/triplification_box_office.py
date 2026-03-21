@@ -17,6 +17,9 @@ g.add((ontology_uri, RDF.type, OWL.Ontology))
 boxoffice_class = MYDATA.BoxOfficeRecord
 g.add((boxoffice_class, RDF.type, OWL.Class))
 
+content_class = MYDATA.Content
+g.add((content_class, RDF.type, OWL.Class))
+
 data_props = [SCHEMA.position, SCHEMA.Date, SCHEMA.revenue, SCHEMA.interactionCount, SCHEMA.publisher]
 for prop in data_props:
     g.add((prop, RDF.type, OWL.DatatypeProperty))
@@ -39,7 +42,11 @@ for row in df.itertuples(index=False):
     g.add((subject, RDF.type, OWL.NamedIndividual))
     g.add((subject, RDF.type, boxoffice_class))
 
-    g.add((subject, SCHEMA.about, MYDATA[str(row.imdb_tconst)]))
+    movie_uri = MYDATA[str(row.imdb_tconst)]
+    g.add((movie_uri, RDF.type, content_class))
+    g.add((movie_uri, RDF.type, OWL.NamedIndividual))
+    g.add((subject, SCHEMA.about, movie_uri))
+
     g.add((subject, SCHEMA.position, Literal(int(row.td), datatype=XSD.integer)))
     
     g.add((subject, SCHEMA.Date, Literal(row.date, datatype=XSD.date)))

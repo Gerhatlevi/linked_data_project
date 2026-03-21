@@ -19,6 +19,9 @@ def triplifiy_reformatted():
     global_toplist_class = MYDATA.GlobalTopList
     g.add((global_toplist_class, RDF.type, OWL.Class))
 
+    content_class = MYDATA.Content
+    g.add((content_class, RDF.type, OWL.Class))
+
     for prop in [SCHEMA.category, SCHEMA.inLanguage, SCHEMA.Date]:
         g.add((prop, RDF.type, OWL.DatatypeProperty))
 
@@ -40,7 +43,8 @@ def triplifiy_reformatted():
         for i in range(1, 11):
             col_name = f'at_rank{i}'
             movie_id = str(row[col_name])
-            
+            g.add((MYDATA[movie_id], RDF.type, content_class))
+            g.add((MYDATA[movie_id], RDF.type, OWL.NamedIndividual))
             if pd.notna(row[col_name]) and movie_id != "nan" and movie_id != "NaN":
                 predicate = SWPORTAL[f"agent_{i}"]
                 object_uri = MYDATA[movie_id]

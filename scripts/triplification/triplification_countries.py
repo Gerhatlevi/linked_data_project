@@ -68,6 +68,9 @@ def triplifiy_reformatted():
     country_record_class = MYDATA.CountryRecord
     g.add((country_record_class, RDF.type, OWL.Class))
 
+    content_class = MYDATA.Content
+    g.add((content_class, RDF.type, OWL.Class))
+
     for prop in [SCHEMA.category, SCHEMA.spatialCoverage, SCHEMA.Date]:
         g.add((prop, RDF.type, OWL.DatatypeProperty))
 
@@ -89,11 +92,13 @@ def triplifiy_reformatted():
         for i in range(1, 11):
             rank_col = f'at_rank{i}'
             movie_id = str(row[rank_col])
-            
+
             if pd.notna(row[rank_col]) and movie_id != "NaN":
                 predicate = SWPORTAL[f"agent_{i}"]
                 object_uri = MYDATA[movie_id] 
                 g.add((subject, predicate, object_uri))
+                g.add((object_uri, RDF.type, content_class))
+                g.add((object_uri, RDF.type, OWL.NamedIndividual))
 
     g.serialize(destination='C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\RDFs\\used\\netflix_countries_reformatted.ttl', format='turtle')
 

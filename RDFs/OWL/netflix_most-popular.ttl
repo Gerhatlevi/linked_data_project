@@ -1,0 +1,571 @@
+@prefix : <http://mydata.utwente.org/movies/netflix-most-popular#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mydata: <http://mydata.utwente.org/movies/> .
+@prefix schema1: <http://schema.org/> .
+@base <http://mydata.utwente.org/movies/netflix-most-popular#> .
+
+<http://mydata.utwente.org/movies/netflix-most-popular> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://schema.org/about
+schema1:about rdf:type owl:ObjectProperty ;
+              rdfs:domain mydata:PopularityRecord ;
+              rdfs:range mydata:Content .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://schema.org/category
+schema1:category rdf:type owl:DatatypeProperty ;
+                 rdfs:domain mydata:PopularityRecord .
+
+
+###  http://schema.org/inLanguage
+schema1:inLanguage rdf:type owl:DatatypeProperty ;
+                   rdfs:domain mydata:PopularityRecord .
+
+
+###  http://schema.org/interactionCount
+schema1:interactionCount rdf:type owl:DatatypeProperty ,
+                                  owl:FunctionalProperty ;
+                         rdfs:domain mydata:PopularityRecord .
+
+
+###  http://schema.org/position
+schema1:position rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain mydata:PopularityRecord ;
+                 rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://mydata.utwente.org/movies/Content
+mydata:Content rdf:type owl:Class .
+
+
+###  http://mydata.utwente.org/movies/PopularityRecord
+mydata:PopularityRecord rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://mydata.utwente.org/movies/most_popular_tt0317052
+mydata:most_popular_tt0317052 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt0317052 ;
+                              schema1:category "Films" ;
+                              schema1:inLanguage "Non-English" ;
+                              schema1:interactionCount 60900000 ;
+                              schema1:position 5 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt10048342
+mydata:most_popular_tt10048342 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt10048342 ;
+                               schema1:category "TV" ;
+                               schema1:inLanguage "English" ;
+                               schema1:interactionCount 112800000 ;
+                               schema1:position 5 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt1016150
+mydata:most_popular_tt1016150 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt1016150 ;
+                              schema1:category "Films" ;
+                              schema1:inLanguage "Non-English" ;
+                              schema1:interactionCount 52100000 ;
+                              schema1:position 9 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt1018841
+mydata:most_popular_tt1018841 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt1018841 ;
+                              schema1:category "TV" ;
+                              schema1:inLanguage "Non-English" ;
+                              schema1:interactionCount 68400000 ,
+                                                       99500000 ;
+                              schema1:position 3 ,
+                                               6 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt10600398
+mydata:most_popular_tt10600398 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt10600398 ;
+                               schema1:category "Films" ;
+                               schema1:inLanguage "English" ;
+                               schema1:interactionCount 137300000 ;
+                               schema1:position 6 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt10919420
+mydata:most_popular_tt10919420 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt10919420 ;
+                               schema1:category "TV" ;
+                               schema1:inLanguage "Non-English" ;
+                               schema1:interactionCount 265200000 ;
+                               schema1:position 1 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt11116912
+mydata:most_popular_tt11116912 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt11116912 ;
+                               schema1:category "Films" ;
+                               schema1:inLanguage "Non-English" ;
+                               schema1:interactionCount 103000000 ;
+                               schema1:position 1 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt11286314
+mydata:most_popular_tt11286314 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt11286314 ;
+                               schema1:category "Films" ;
+                               schema1:inLanguage "English" ;
+                               schema1:interactionCount 171400000 ;
+                               schema1:position 2 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt11937816
+mydata:most_popular_tt11937816 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt11937816 ;
+                               schema1:category "TV" ;
+                               schema1:inLanguage "Non-English" ;
+                               schema1:interactionCount 58400000 ;
+                               schema1:position 7 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt12263384
+mydata:most_popular_tt12263384 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt12263384 ;
+                               schema1:category "Films" ;
+                               schema1:inLanguage "English" ;
+                               schema1:interactionCount 134900000 ;
+                               schema1:position 10 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt13443470
+mydata:most_popular_tt13443470 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt13443470 ;
+                               schema1:category "TV" ;
+                               schema1:inLanguage "English" ;
+                               schema1:interactionCount 252100000 ;
+                               schema1:position 1 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt13918776
+mydata:most_popular_tt13918776 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt13918776 ;
+                               schema1:category "TV" ;
+                               schema1:inLanguage "English" ;
+                               schema1:interactionCount 98200000 ;
+                               schema1:position 6 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt14169960
+mydata:most_popular_tt14169960 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt14169960 ;
+                               schema1:category "TV" ;
+                               schema1:inLanguage "Non-English" ;
+                               schema1:interactionCount 55500000 ;
+                               schema1:position 8 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt14463484
+mydata:most_popular_tt14463484 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt14463484 ;
+                               schema1:category "Films" ;
+                               schema1:inLanguage "Non-English" ;
+                               schema1:interactionCount 61100000 ;
+                               schema1:position 4 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt14661396
+mydata:most_popular_tt14661396 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt14661396 ;
+                               schema1:category "TV" ;
+                               schema1:inLanguage "English" ;
+                               schema1:interactionCount 81300000 ;
+                               schema1:position 10 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt15229674
+mydata:most_popular_tt15229674 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt15229674 ;
+                               schema1:category "Films" ;
+                               schema1:inLanguage "Non-English" ;
+                               schema1:interactionCount 56400000 ;
+                               schema1:position 7 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt15789472
+mydata:most_popular_tt15789472 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt15789472 ;
+                               schema1:category "Films" ;
+                               schema1:inLanguage "Non-English" ;
+                               schema1:interactionCount 83700000 ;
+                               schema1:position 2 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt1649418
+mydata:most_popular_tt1649418 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt1649418 ;
+                              schema1:category "Films" ;
+                              schema1:inLanguage "English" ;
+                              schema1:interactionCount 139300000 ;
+                              schema1:position 5 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt20863760
+mydata:most_popular_tt20863760 rdf:type owl:NamedIndividual ,
+                                        mydata:PopularityRecord ;
+                               schema1:about mydata:tt20863760 ;
+                               schema1:category "TV" ;
+                               schema1:inLanguage "Non-English" ;
+                               schema1:interactionCount 50900000 ;
+                               schema1:position 9 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt2463208
+mydata:most_popular_tt2463208 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt2463208 ;
+                              schema1:category "Films" ;
+                              schema1:inLanguage "English" ;
+                              schema1:interactionCount 157600000 ;
+                              schema1:position 3 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt2737304
+mydata:most_popular_tt2737304 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt2737304 ;
+                              schema1:category "Films" ;
+                              schema1:inLanguage "English" ;
+                              schema1:interactionCount 157400000 ;
+                              schema1:position 4 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt4574334
+mydata:most_popular_tt4574334 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt4574334 ;
+                              schema1:category "TV" ;
+                              schema1:inLanguage "English" ;
+                              schema1:interactionCount 140700000 ,
+                                                       94800000 ;
+                              schema1:position 2 ,
+                                               7 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt5180504
+mydata:most_popular_tt5180504 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt5180504 ;
+                              schema1:category "TV" ;
+                              schema1:inLanguage "English" ;
+                              schema1:interactionCount 83000000 ;
+                              schema1:position 9 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt6402468
+mydata:most_popular_tt6402468 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt6402468 ;
+                              schema1:category "Films" ;
+                              schema1:inLanguage "Non-English" ;
+                              schema1:interactionCount 60900000 ;
+                              schema1:position 6 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt6468322
+mydata:most_popular_tt6468322 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt6468322 ;
+                              schema1:category "TV" ;
+                              schema1:inLanguage "Non-English" ;
+                              schema1:interactionCount 106000000 ,
+                                                       80000000 ,
+                                                       99200000 ;
+                              schema1:position 2 ,
+                                               4 ,
+                                               5 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt6708668
+mydata:most_popular_tt6708668 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt6708668 ;
+                              schema1:category "Films" ;
+                              schema1:inLanguage "Non-English" ;
+                              schema1:interactionCount 53900000 ;
+                              schema1:position 8 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt6968614
+mydata:most_popular_tt6968614 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt6968614 ;
+                              schema1:category "Films" ;
+                              schema1:inLanguage "English" ;
+                              schema1:interactionCount 136400000 ;
+                              schema1:position 7 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt7134908
+mydata:most_popular_tt7134908 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt7134908 ;
+                              schema1:category "TV" ;
+                              schema1:inLanguage "Non-English" ;
+                              schema1:interactionCount 50000000 ;
+                              schema1:position 10 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt7991608
+mydata:most_popular_tt7991608 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt7991608 ;
+                              schema1:category "Films" ;
+                              schema1:inLanguage "English" ;
+                              schema1:interactionCount 230900000 ;
+                              schema1:position 1 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt8228288
+mydata:most_popular_tt8228288 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt8228288 ;
+                              schema1:category "Films" ;
+                              schema1:inLanguage "Non-English" ;
+                              schema1:interactionCount 82800000 ;
+                              schema1:position 3 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt8740790
+mydata:most_popular_tt8740790 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt8740790 ;
+                              schema1:category "TV" ;
+                              schema1:inLanguage "English" ;
+                              schema1:interactionCount 113300000 ,
+                                                       93800000 ;
+                              schema1:position 4 ,
+                                               8 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt8936646
+mydata:most_popular_tt8936646 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt8936646 ;
+                              schema1:category "Films" ;
+                              schema1:inLanguage "English" ;
+                              schema1:interactionCount 135700000 ;
+                              schema1:position 9 .
+
+
+###  http://mydata.utwente.org/movies/most_popular_tt9845564
+mydata:most_popular_tt9845564 rdf:type owl:NamedIndividual ,
+                                       mydata:PopularityRecord ;
+                              schema1:about mydata:tt9845564 ;
+                              schema1:category "Films" ;
+                              schema1:inLanguage "Non-English" ;
+                              schema1:interactionCount 48600000 ;
+                              schema1:position 10 .
+
+
+###  http://mydata.utwente.org/movies/tt0317052
+mydata:tt0317052 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt10048342
+mydata:tt10048342 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt1016150
+mydata:tt1016150 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt1018841
+mydata:tt1018841 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt10600398
+mydata:tt10600398 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt10919420
+mydata:tt10919420 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt11116912
+mydata:tt11116912 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt11286314
+mydata:tt11286314 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt11937816
+mydata:tt11937816 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt12263384
+mydata:tt12263384 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt13443470
+mydata:tt13443470 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt13918776
+mydata:tt13918776 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt14169960
+mydata:tt14169960 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt14463484
+mydata:tt14463484 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt14661396
+mydata:tt14661396 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt15229674
+mydata:tt15229674 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt15789472
+mydata:tt15789472 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt1649418
+mydata:tt1649418 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt20863760
+mydata:tt20863760 rdf:type owl:NamedIndividual ,
+                           mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt2463208
+mydata:tt2463208 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt2737304
+mydata:tt2737304 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt4574334
+mydata:tt4574334 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt5180504
+mydata:tt5180504 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt6402468
+mydata:tt6402468 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt6468322
+mydata:tt6468322 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt6708668
+mydata:tt6708668 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt6968614
+mydata:tt6968614 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt7134908
+mydata:tt7134908 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt7991608
+mydata:tt7991608 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt8228288
+mydata:tt8228288 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt8740790
+mydata:tt8740790 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt8936646
+mydata:tt8936646 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  http://mydata.utwente.org/movies/tt9845564
+mydata:tt9845564 rdf:type owl:NamedIndividual ,
+                          mydata:Content .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
