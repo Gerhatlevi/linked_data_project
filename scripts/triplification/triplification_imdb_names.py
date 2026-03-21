@@ -14,20 +14,24 @@ g.bind("mydata", MYDATA, override=True)
 ontology_uri = URIRef("http://mydata.utwente.org/movies/people")
 g.add((ontology_uri, RDF.type, OWL.Ontology))
 
-g.add((SCHEMA.Person, RDF.type, OWL.Class))
+person_class = MYDATA.Person
+g.add((person_class, RDF.type, OWL.Class))
+
+content_class = MYDATA.Content
+g.add((content_class, RDF.type, OWL.Class))
 
 for prop in [SCHEMA.name, SCHEMA.birthDate, SCHEMA.deathDate]:
     g.add((prop, RDF.type, OWL.DatatypeProperty))
-    g.add((prop, RDFS.domain, SCHEMA.Person))
+    g.add((prop, RDFS.domain, person_class))
 
 g.add((SCHEMA.workFeatured, RDF.type, OWL.ObjectProperty))
-g.add((SCHEMA.workFeatured, RDFS.domain, SCHEMA.Person))
+g.add((SCHEMA.workFeatured, RDFS.domain, person_class))
 
 for row in df.itertuples(index=False):
     subject = MYDATA[str(row.nconst)]
 
     g.add((subject, RDF.type, OWL.NamedIndividual))
-    g.add((subject, RDF.type, SCHEMA.Person))
+    g.add((subject, RDF.type, person_class))
     g.add((subject, SCHEMA.name, Literal(row.primaryName)))
     
     if pd.notna(row.birthYear):
@@ -41,6 +45,10 @@ for row in df.itertuples(index=False):
         for tconst in titles:
             tconst_clean = tconst.strip()
             if tconst_clean:
+                movie_uri = MYDATA[tconst_clean]
                 g.add((subject, SCHEMA.workFeatured, MYDATA[tconst_clean]))
+
+                g.add((movie_uri, RDF.type, content_class))
+                g.add((movie_uri, RDF.type, OWL.NamedIndividual))
 
 g.serialize(destination='C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\RDFs\\used\\imdb_people.ttl', format="turtle")
