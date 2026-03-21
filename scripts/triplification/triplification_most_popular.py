@@ -1,7 +1,7 @@
 import pandas as pd
 from rdflib import Graph, Literal, Namespace, RDF, OWL, URIRef
 from rdflib.namespace import  XSD
-df = pd.read_csv('C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\used\\most-popular-with-imdb.csv', low_memory=False)
+df = pd.read_csv('../../data_files/used/most_popular_with_imdb.csv', low_memory=False)
 
 g = Graph()
 SCHEMA = Namespace("http://schema.org/")
@@ -16,7 +16,7 @@ g.add((ontology_uri, RDF.type, OWL.Ontology))
 popularity_class = MYDATA.PopularityRecord
 g.add((popularity_class, RDF.type, OWL.Class))
 
-data_props = [SCHEMA.category, SCHEMA.position, SCHEMA.name, SCHEMA.alternateName, SCHEMA.interactionCount]
+data_props = [SCHEMA.category, SCHEMA.position, SCHEMA.name, SCHEMA.alternateName, SCHEMA.interactionCount, SCHEMA.inLanguage]
 for prop in data_props:
     g.add((prop, RDF.type, OWL.DatatypeProperty))
 
@@ -34,6 +34,7 @@ for row in df.itertuples(index=False):
     g.add((subject, SCHEMA.category, Literal(row.category)))
     g.add((subject, SCHEMA.position, Literal(int(row.rank), datatype=XSD.integer)))
     g.add((subject, SCHEMA.name, Literal(row.show_title)))
+    g.add((subject, SCHEMA.inLanguage, Literal(row.language)))
     
     if pd.notna(row.season_title):
         g.add((subject, SCHEMA.alternateName, Literal(row.season_title)))
@@ -42,5 +43,5 @@ for row in df.itertuples(index=False):
         val = int(row.views_first_91_days)
         g.add((subject, SCHEMA.interactionCount, Literal(val, datatype=XSD.integer)))
 
-output_path = 'C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\RDFs\\used\\netflix_most-popular.ttl'
+output_path = '../../RDFs/used/netflix_most_popular.ttl'
 g.serialize(destination=output_path, format="turtle")
