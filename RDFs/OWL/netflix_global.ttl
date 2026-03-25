@@ -7,7 +7,7 @@
 @prefix mydata: <http://mydata.utwente.org/movies/> .
 @prefix schema1: <http://schema.org/> .
 @prefix swportal: <http://sw-portal.deri.org/ontologies/swportal#> .
-@base <http://mydata.utwente.org/movies/netflix-global> .
+@base <http://mydata.utwente.org/movies/netflix-global#> .
 
 <http://mydata.utwente.org/movies/netflix-global> rdf:type owl:Ontology .
 
@@ -24,61 +24,91 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 
 ###  http://sw-portal.deri.org/ontologies/swportal#agent_1
-swportal:agent_1 rdf:type owl:ObjectProperty ;
+swportal:agent_1 rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ,
+                          owl:AsymmetricProperty ,
+                          owl:IrreflexiveProperty ;
                  rdfs:domain mydata:GlobalTopList ;
                  rdfs:range mydata:Content .
 
 
 ###  http://sw-portal.deri.org/ontologies/swportal#agent_10
-swportal:agent_10 rdf:type owl:ObjectProperty ;
+swportal:agent_10 rdf:type owl:ObjectProperty ,
+                           owl:FunctionalProperty ,
+                           owl:AsymmetricProperty ,
+                           owl:IrreflexiveProperty ;
                   rdfs:domain mydata:GlobalTopList ;
                   rdfs:range mydata:Content .
 
 
 ###  http://sw-portal.deri.org/ontologies/swportal#agent_2
-swportal:agent_2 rdf:type owl:ObjectProperty ;
+swportal:agent_2 rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ,
+                          owl:AsymmetricProperty ,
+                          owl:IrreflexiveProperty ;
                  rdfs:domain mydata:GlobalTopList ;
                  rdfs:range mydata:Content .
 
 
 ###  http://sw-portal.deri.org/ontologies/swportal#agent_3
-swportal:agent_3 rdf:type owl:ObjectProperty ;
+swportal:agent_3 rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ,
+                          owl:AsymmetricProperty ,
+                          owl:IrreflexiveProperty ;
                  rdfs:domain mydata:GlobalTopList ;
                  rdfs:range mydata:Content .
 
 
 ###  http://sw-portal.deri.org/ontologies/swportal#agent_4
-swportal:agent_4 rdf:type owl:ObjectProperty ;
+swportal:agent_4 rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ,
+                          owl:AsymmetricProperty ,
+                          owl:IrreflexiveProperty ;
                  rdfs:domain mydata:GlobalTopList ;
                  rdfs:range mydata:Content .
 
 
 ###  http://sw-portal.deri.org/ontologies/swportal#agent_5
-swportal:agent_5 rdf:type owl:ObjectProperty ;
+swportal:agent_5 rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ,
+                          owl:AsymmetricProperty ,
+                          owl:IrreflexiveProperty ;
                  rdfs:domain mydata:GlobalTopList ;
                  rdfs:range mydata:Content .
 
 
 ###  http://sw-portal.deri.org/ontologies/swportal#agent_6
-swportal:agent_6 rdf:type owl:ObjectProperty ;
+swportal:agent_6 rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ,
+                          owl:AsymmetricProperty ,
+                          owl:IrreflexiveProperty ;
                  rdfs:domain mydata:GlobalTopList ;
                  rdfs:range mydata:Content .
 
 
 ###  http://sw-portal.deri.org/ontologies/swportal#agent_7
-swportal:agent_7 rdf:type owl:ObjectProperty ;
+swportal:agent_7 rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ,
+                          owl:AsymmetricProperty ,
+                          owl:IrreflexiveProperty ;
                  rdfs:domain mydata:GlobalTopList ;
                  rdfs:range mydata:Content .
 
 
 ###  http://sw-portal.deri.org/ontologies/swportal#agent_8
-swportal:agent_8 rdf:type owl:ObjectProperty ;
+swportal:agent_8 rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ,
+                          owl:AsymmetricProperty ,
+                          owl:IrreflexiveProperty ;
                  rdfs:domain mydata:GlobalTopList ;
                  rdfs:range mydata:Content .
 
 
 ###  http://sw-portal.deri.org/ontologies/swportal#agent_9
-swportal:agent_9 rdf:type owl:ObjectProperty ;
+swportal:agent_9 rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ,
+                          owl:AsymmetricProperty ,
+                          owl:IrreflexiveProperty ;
                  rdfs:domain mydata:GlobalTopList ;
                  rdfs:range mydata:Content .
 
@@ -88,14 +118,15 @@ swportal:agent_9 rdf:type owl:ObjectProperty ;
 #################################################################
 
 ###  http://schema.org/Date
-schema1:Date rdf:type owl:DatatypeProperty ;
+schema1:Date rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain mydata:GlobalTopList ;
              rdfs:range xsd:date .
 
 
 ###  http://schema.org/category
 schema1:category rdf:type owl:DatatypeProperty ;
-                 rdfs:domain mydata:Content ,
-                             mydata:GlobalTopList ;
+                 rdfs:domain mydata:GlobalTopList ;
                  rdfs:range [ rdf:type rdfs:Datatype ;
                               owl:oneOf [ rdf:type rdf:List ;
                                           rdf:first "Films" ;
@@ -108,9 +139,9 @@ schema1:category rdf:type owl:DatatypeProperty ;
 
 
 ###  http://schema.org/inLanguage
-schema1:inLanguage rdf:type owl:DatatypeProperty ;
-                   rdfs:domain mydata:Content ,
-                               mydata:GlobalTopList ;
+schema1:inLanguage rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain mydata:GlobalTopList ;
                    rdfs:range [ rdf:type rdfs:Datatype ;
                                 owl:oneOf [ rdf:type rdf:List ;
                                             rdf:first "English" ;

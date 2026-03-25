@@ -15,7 +15,10 @@
 #################################################################
 
 ###  http://schema.org/about
-schema1:about rdf:type owl:ObjectProperty ;
+schema1:about rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ,
+                       owl:AsymmetricProperty ,
+                       owl:IrreflexiveProperty ;
               rdfs:domain mydata:PopularityRecord ;
               rdfs:range mydata:Content .
 
@@ -26,25 +29,49 @@ schema1:about rdf:type owl:ObjectProperty ;
 
 ###  http://schema.org/category
 schema1:category rdf:type owl:DatatypeProperty ;
-                 rdfs:domain mydata:PopularityRecord .
+                 rdfs:domain mydata:PopularityRecord ;
+                 rdfs:range [ rdf:type rdfs:Datatype ;
+                              owl:oneOf [ rdf:type rdf:List ;
+                                          rdf:first "Films" ;
+                                          rdf:rest [ rdf:type rdf:List ;
+                                                     rdf:first "TV" ;
+                                                     rdf:rest rdf:nil
+                                                   ]
+                                        ]
+                            ] .
 
 
 ###  http://schema.org/inLanguage
 schema1:inLanguage rdf:type owl:DatatypeProperty ;
-                   rdfs:domain mydata:PopularityRecord .
+                   rdfs:domain mydata:PopularityRecord ;
+                   rdfs:range [ rdf:type rdfs:Datatype ;
+                                owl:oneOf [ rdf:type rdf:List ;
+                                            rdf:first "English" ;
+                                            rdf:rest [ rdf:type rdf:List ;
+                                                       rdf:first "Non-English" ;
+                                                       rdf:rest rdf:nil
+                                                     ]
+                                          ]
+                              ] .
 
 
 ###  http://schema.org/interactionCount
-schema1:interactionCount rdf:type owl:DatatypeProperty ,
-                                  owl:FunctionalProperty ;
-                         rdfs:domain mydata:PopularityRecord .
+schema1:interactionCount rdf:type owl:DatatypeProperty ;
+                         rdfs:domain mydata:PopularityRecord ;
+                         rdfs:range xsd:positiveInteger .
 
 
 ###  http://schema.org/position
-schema1:position rdf:type owl:DatatypeProperty ,
-                          owl:FunctionalProperty ;
+schema1:position rdf:type owl:DatatypeProperty ;
                  rdfs:domain mydata:PopularityRecord ;
-                 rdfs:range xsd:integer .
+                 rdfs:range [ rdf:type rdfs:Datatype ;
+                              owl:onDatatype xsd:integer ;
+                              owl:withRestrictions ( [ xsd:minInclusive 1
+                                                     ]
+                                                     [ xsd:maxInclusive 10
+                                                     ]
+                                                   )
+                            ] .
 
 
 #################################################################

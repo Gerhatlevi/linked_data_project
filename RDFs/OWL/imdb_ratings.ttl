@@ -17,7 +17,8 @@
 ###  http://schema.org/ratingCount
 schema1:ratingCount rdf:type owl:DatatypeProperty ,
                              owl:FunctionalProperty ;
-                    rdfs:domain mydata:Content .
+                    rdfs:domain mydata:Content ;
+                    rdfs:range xsd:positiveInteger .
 
 
 ###  http://schema.org/ratingValue
