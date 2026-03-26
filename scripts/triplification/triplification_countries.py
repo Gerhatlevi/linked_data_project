@@ -101,7 +101,7 @@ def triplifiy_reformatted():
                 predicate = SWPORTAL[f"agent_{i}"]
                 object_uri = MYDATA[movie_id] 
                 g.add((subject, predicate, object_uri))
-                g.add((object_uri, RDF.type, content_class))
+                # g.add((object_uri, RDF.type, content_class))
                 g.add((object_uri, RDF.type, OWL.NamedIndividual))
                 if row.category == 'TV':
                     g.add((object_uri, RDF.type, TV_class))

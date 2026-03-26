@@ -39,7 +39,7 @@ for _, row in df.iterrows():
 
     g.add((subject, RDF.type, OWL.NamedIndividual))
     # Add the correct class of content
-    g.add((subject, RDF.type, content_class))
+    # g.add((subject, RDF.type, content_class))
     category = row['titleType']
     match category:
         case 'short' | 'movie' | 'tvShort' | 'tvMovie':
@@ -47,10 +47,10 @@ for _, row in df.iterrows():
         case 'tvSpecial':
             g.add((subject, RDF.type, TV_class))
         case 'tvSeries' | 'tvMiniSeries':
-            g.add((subject, RDF.type, TV_class))
+            # g.add((subject, RDF.type, TV_class))
             g.add((subject, RDF.type, season_class))
         case 'tvEpisode':
-            g.add((subject, RDF.type, TV_class))
+            # g.add((subject, RDF.type, TV_class))
             g.add((subject, RDF.type, episode_class))
 
     g.add((subject, schema.additionalType, Literal(row['titleType'])))
