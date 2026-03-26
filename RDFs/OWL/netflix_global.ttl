@@ -179,11 +179,6 @@ mydata:TV rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  http://mydata.utwente.org/movies/nan
-mydata:nan rdf:type owl:NamedIndividual ,
-                    mydata:Content .
-
-
 ###  http://mydata.utwente.org/movies/tt0003606
 mydata:tt0003606 rdf:type owl:NamedIndividual ,
                           mydata:Content ,
