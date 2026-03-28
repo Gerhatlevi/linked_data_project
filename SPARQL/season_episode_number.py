@@ -38,7 +38,7 @@ try:
         plt.figure(figsize=(10, 6))
         sns.set_style("whitegrid")
         
-        ax = sns.barplot(x="Season", y="Episodes", data=df, color="blue")
+        ax = sns.barplot(x="Season", y="Episodes", data=df, color="#4e79a7")
         
         for p in ax.patches:
             ax.annotate(f'{int(p.get_height())}', 
@@ -50,7 +50,7 @@ try:
 
         plt.title("Number of Episodes per Season for 'The Blacklist'", fontsize=14)
         plt.xlabel("Season Number", fontsize=12)
-        plt.ylabel("Count of Episodes", fontsize=12)
+        plt.ylabel("", fontsize=12)
         plt.ylim(0, df["Episodes"].max() + 5)
         
         plt.tight_layout()

@@ -43,7 +43,7 @@ try:
         plt.figure(figsize=(10, 6))
         sns.set_style("whitegrid")
         
-        ax = sns.barplot(x="Rating", y="Title", data=df, palette="magma")
+        ax = sns.barplot(x="Rating", y="Title", data=df, palette="viridis")
         
         for i in ax.containers:
             ax.bar_label(i, padding=3)

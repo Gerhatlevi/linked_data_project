@@ -45,7 +45,7 @@ try:
         fig, ax = plt.subplots(figsize=(12, 6))
         ax.axis('off')
 
-        plt.title("Weekly #1 Non-English Films on Netflix (Global)", fontsize=16, weight='bold', pad=20)
+        plt.title("Weekly #1 Films on Netflix", fontsize=16, weight='bold', pad=20)
 
         the_table = plt.table(cellText=df.values,
                               colLabels=df.columns,

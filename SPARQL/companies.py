@@ -49,9 +49,9 @@ try:
     
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'${x/1e6:.0f}M'))
     
-    plt.title("Top 10 Movie Studios by Total Box Office Revenue", fontsize=16, weight='bold')
-    plt.xlabel("Revenue (Millions of USD)")
-    plt.ylabel("Studio Name")
+    plt.title("Top 10 Movie Studios", fontsize=16, weight='bold')
+    plt.xlabel("Revenue")
+    plt.ylabel("")
     
     plt.tight_layout()
     plt.show()

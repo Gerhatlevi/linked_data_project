@@ -49,12 +49,9 @@ try:
         
         ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'${x/1e6:.1f}M'))
 
-        for i in ax.containers:
-            ax.bar_label(i, padding=3, fmt='$%.0f', fontsize=10)
-
         plt.title("Top 10 Highest Revenue Movies (December 10, 2002)", fontsize=16, weight='bold')
-        plt.xlabel("Revenue in Millions (USD)", fontsize=12)
-        plt.ylabel("Movie Title", fontsize=12)
+        plt.xlabel("Revenue", fontsize=12)
+        plt.ylabel("", fontsize=12)
         
         plt.tight_layout()
         plt.show()

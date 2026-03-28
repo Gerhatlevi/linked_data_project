@@ -43,15 +43,14 @@ try:
         fig, ax = plt.subplots(figsize=(10, 5))
         ax.axis('off')
 
-        plt.title("Living Contributors: 'Breathe' (tt1928130)", fontsize=16, weight='bold', pad=20)
+        plt.title("Living Contributors: 'Breathe'", fontsize=16, weight='bold', pad=20)
 
         table = plt.table(cellText=df.values,
                           colLabels=df.columns,
-                          cellLoc='left',
+                          cellLoc='center',
                           loc='center',
                           colColours=["#f2f2f2", "#f2f2f2"])
         
-        # 4. Final adjustments for aesthetics
         table.auto_set_font_size(False)
         table.set_fontsize(13)
         table.scale(1.2, 1.6)
