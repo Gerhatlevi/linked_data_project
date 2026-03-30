@@ -1,0 +1,111 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix mydata: <http://mydata.utwente.org/movies/> .
+@prefix schema1: <http://schema.org/> .
+@prefix swportal: <http://sw-portal.deri.org/ontologies/swportal#> .
+
+
+mydata:EpisodePropertyShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf schema1:seasonNumber, schema1:episodeNumber ;
+    sh:class mydata:episode ;
+    sh:message "Only entities of type mydata:episode can have a seasonNumber or episodeNumber."
+    .
+
+mydata:PartOfPropertyShape a sh:NodeShape ;
+    sh:targetSubjectsOf schema1:isPartOf ;
+    sh:class mydata:TV ;
+    .
+
+mydata:ListShape
+    a sh:NodeShape ;
+    sh:targetClass mydata:GlobalTopList, mydata:CountryRecord ;
+    sh:and (
+    [ sh:property [
+        sh:path swportal:agent_1 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_2 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_3 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_4 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_5 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_6 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_7 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_8 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_9 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_10 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    ).
+
+mydata:BoxOfficeShape
+    a sh:NodeShape ;
+    sh:targetClass mydata:BoxOfficeRecord ;
+    sh:and (
+    [
+    sh:property [
+        sh:path schema1:about ;
+        sh:class mydata:Movie ;
+    ]
+    ]
+    [
+    sh:property [
+        sh:path schema1:interactionCount ;
+        sh:minInclusive 0 ;
+        sh:datatype xsd:integer ;
+    ]
+    ]
+    [
+    sh:property [
+        sh:path schema1:position ;
+        sh:minInclusive 0 ;
+        sh:datatype xsd:integer ;
+    ]
+    ]
+    [
+    sh:property [
+        sh:path schema1:revenue ;
+        sh:minInclusive 0 ;
+    ]
+    ]
+    )
+    .
