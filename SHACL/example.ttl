@@ -1,0 +1,14 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix mydata: <http://mydata.utwente.org/movies/> .
+@prefix schema1: <http://schema.org/> .
+
+mydata:EpisodePropertyShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf schema1:seasonNumber, schema1:episodeNumber ;
+    sh:class mydata:episode ;
+    sh:message "Only entities of type mydata:episode can have a seasonNumber or episodeNumber." .
