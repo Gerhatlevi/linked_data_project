@@ -1,6 +1,8 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
 
-sparql = SPARQLWrapper("http://localhost:7200/repositories/linked_data_ut")
+# sparql = SPARQLWrapper("http://localhost:7200/repositories/linked_data_ut")
+sparql = SPARQLWrapper("http://localhost:7200/repositories/lined_data_project") # Name on Melle's laptop.
+# Yes I made a typo, GraphDB won't let me change the name lol
 sparql.setReturnFormat(JSON)
 
 query = """
@@ -25,6 +27,7 @@ sparql.setQuery(query)
 try:
     results = sparql.query().convert()
     bindings = results["results"]["bindings"]
+    print(results)
 
     print("--- SHACL First Violation Check ---")
     if not bindings:
@@ -39,3 +42,4 @@ try:
 
 except Exception as e:
     print(f"Error: {e}")
+

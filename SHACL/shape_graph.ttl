@@ -1,0 +1,181 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix mydata: <http://mydata.utwente.org/movies/> .
+@prefix schema1: <http://schema.org/> .
+@prefix swportal: <http://sw-portal.deri.org/ontologies/swportal#> .
+
+
+mydata:EpisodePropertyShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf schema1:seasonNumber, schema1:episodeNumber ;
+    sh:class mydata:episode ;
+    sh:message "Only entities of type mydata:episode can have a seasonNumber or episodeNumber."
+    .
+
+mydata:PartOfPropertyShape a sh:NodeShape ;
+    sh:targetSubjectsOf schema1:isPartOf ;
+    sh:class mydata:TV ;
+    .
+
+mydata:ListShape
+    a sh:NodeShape ;
+    sh:targetClass mydata:GlobalTopList, mydata:CountryRecord ;
+    sh:and (
+    [ sh:property [
+        sh:path swportal:agent_1 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_2 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_3 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_4 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_5 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_6 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_7 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_8 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_9 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    [ sh:property [
+        sh:path swportal:agent_10 ;
+        sh:class mydata:Content ;
+    ]
+    ]
+    ).
+
+mydata:BoxOfficeShape
+    a sh:NodeShape ;
+    sh:targetClass mydata:BoxOfficeRecord ;
+    sh:and (
+    [
+    sh:property [
+        sh:path schema1:about ;
+        sh:class mydata:Movie ;
+    ]
+    ]
+    [
+    sh:property [
+        sh:path schema1:interactionCount ;
+        sh:minInclusive 0 ;
+        sh:datatype xsd:integer ;
+    ]
+    ]
+    [
+    sh:property [
+        sh:path schema1:position ;
+        sh:minInclusive 0 ;
+        sh:datatype xsd:integer ;
+    ]
+    ]
+    [
+    sh:property [
+        sh:path schema1:revenue ;
+        sh:minInclusive 0 ;
+    ]
+    ]
+    )
+    .
+
+mydata:PeopleShape
+    a sh:NodeShape ;
+    sh:targetClass mydata:Person ;
+    sh:and (
+    [
+    sh:property [
+        sh:path schema1:workFeatured ;
+        sh:minCount 1 ;
+    ]
+    ]
+    [ sh:property [
+        sh:path schema1:birthDate ;
+        sh:lessThan schema1:deathDate ;
+        sh:maxCount 1 ;
+    ]
+    ]
+    sh:property [
+        sh:path schema1:name ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ]
+    ) .
+
+mydata:ContentShape
+    a sh:NodeShape ;
+    sh:targetClass mydata:Content ;
+    sh:property [
+        sh:path schema1:ratingValue ;
+        sh:maxCount 1 ;
+        sh:minInclusive 1.0 ;
+        sh:maxInclusive 10.0 ;
+    ] .
+mydata:ContentShape1
+    a sh:NodeShape ;
+    sh:targetClass mydata:Content ;
+    sh:property [
+        sh:path schema1:ratingCount ;
+        sh:maxCount 1 ;
+        sh:minInclusive 0 ;
+    ] .
+mydata:ContentShape2
+    a sh:NodeShape ;
+    sh:targetClass mydata:Content ;
+    sh:property [
+        sh:path schema1:additionalType ;
+        sh:maxCount 1 ;
+    ] .
+mydata:ContentShape3
+    a sh:NodeShape ;
+    sh:targetClass mydata:Content ;
+    sh:property [
+        sh:path schema1:datePublished ;
+        sh:maxCount 1 ;
+    ] .
+mydata:ContentShape4
+    a sh:NodeShape ;
+    sh:targetClass mydata:Content ;
+    sh:property [
+        sh:path schema1:genre ;
+        sh:maxCount 1 ;
+    ] .
+mydata:ContentShape5
+    a sh:NodeShape ;
+    sh:targetClass mydata:Content ;
+    sh:property [
+        sh:path schema1:name ;
+        sh:maxCount 1 ;
+    ] .
+
