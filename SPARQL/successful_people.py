@@ -23,16 +23,15 @@ WHERE {
   GRAPH <http://mydata.utwente.org/movies/netflix> {
     ?netRecord a mydata:CountryRecord ;
                schema1:spatialCoverage "Netherlands" ;
-               ?property ?movie .
+               swportal:agent_1 ?movie .
     
-    FILTER (?property IN (swportal:agent_1, swportal:agent_2, swportal:agent_3))
   }
 
   GRAPH <http://mydata.utwente.org/movies/boxoffice> {
     ?boRecord schema1:about ?movie ;
               schema1:revenue ?revenue .
     
-    FILTER(?revenue > 1000000)
+    FILTER(?revenue > 700000000)
   }
 }
 ORDER BY ?personName
