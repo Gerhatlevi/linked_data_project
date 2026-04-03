@@ -110,4 +110,4 @@ def triplifiy_reformatted():
 
     g.serialize(destination='../../RDFs/used/netflix_countries_reformatted.ttl', format='turtle')
 
-triplifiy_reformatted()
+triplifiy()

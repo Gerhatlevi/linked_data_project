@@ -2,7 +2,7 @@ import pandas as pd
 from rdflib import OWL, Graph, Literal, Namespace, RDF, URIRef
 from rdflib.namespace import XSD
 
-df = pd.read_csv('C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\used\\box_office_with-imdb.csv')
+df = pd.read_csv('C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\used\\boxoffice-with-imdb2.csv')
 
 g = Graph()
 SCHEMA = Namespace("http://schema.org/")
@@ -62,5 +62,5 @@ for row in df.itertuples(index=False):
     if pd.notna(row.distributor):
         g.add((subject, SCHEMA.publisher, Literal(row.distributor)))
 
-output_path = 'C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\RDFs\\used\\box_office.ttl'
+output_path = 'C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\RDFs\\used\\box_office2.ttl'
 g.serialize(destination=output_path, format="turtle")

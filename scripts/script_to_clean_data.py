@@ -35,4 +35,4 @@ def clean_countries(input_path, output_path):
 
 
 if __name__ == "__main__":
-    clean_most_popular(path + "most-popular-with-imdb.csv", path + "most-popular-with-imdb.csv")
+    clean_countries(path + "countries-with-imdb.csv", path + "countries-with-imdb.csv")

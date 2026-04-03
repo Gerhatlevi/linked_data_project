@@ -3,38 +3,38 @@ import pandas as pd
 import re
 
 # --- FILE PATHS ---
-netflix_file = "../all-weeks-countries.csv" # Az új országos fájlod
-imdb_file = "../data_files/filtered_title_basics.tsv"
-output_file = "../data_files/countries-with-imdb.csv"
-
+netflix_file = "C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\all-weeks-countries.csv"
+imdb_file = "C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\used\\filtered_title_basics.tsv"
+ratings_file = "C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\used\\filtered_title_ratings.tsv"
+output_file = "C:\\Users\\leven\\Erasmus\\3_quartile\\LDSW\\Project\\linked_data_project\\data_files\\used\\countries-with-imdb.csv"
 
 # --- LOAD DATA ---
 netflix_df = pd.read_csv(netflix_file, encoding="latin-1")
 imdb_df = pd.read_csv(imdb_file, sep="\t", low_memory=False)
+ratings_df = pd.read_csv(ratings_file, sep="\t", low_memory=False)
 
-# Convert season titles to season numbers
+# --- CONVERT SEASON TITLES ---
 for i, row in netflix_df.iterrows():
-    # Iterate through rows with a season title
     if str(row['season_title']) != 'nan':
-        # Get all the numbers in a title (last one should be the season number
         numbers_in_title = re.findall("[0-9]+", row['season_title'])
-        # If there are no numbers or the last number is higher than 40 (and so probably not a season number,
-        # longest ever show is 37 seasons), assume it is season 1 (single season show)
         if not numbers_in_title or int(numbers_in_title[-1]) > 40:
             season = 1
         else:
             season = int(numbers_in_title[-1])
         netflix_df.at[i, 'season_title'] = season
 
-# --- CLEAN TITLES & CATEGORIES ---
+# --- PARSE WEEK ---
+netflix_df["bo_year"] = pd.to_datetime(netflix_df["week"]).dt.year
+
+# --- CLEAN TITLES ---
 netflix_df["match_title"] = netflix_df["show_title"].str.lower().str.strip()
-imdb_df["match_title"] = imdb_df["primaryTitle"].str.lower().str.strip()
-imdb_df["match_title2"] = imdb_df["originalTitle"].str.lower().str.strip()
+imdb_df["startYear"] = pd.to_numeric(imdb_df["startYear"], errors="coerce")
 
-# --- UNIQUE SHOWS MATCHING (Efficiency Boost) ---
-# Kigyűjtjük az egyedi cím-kategória párosokat, hogy ne keressünk 100-szor ugyanarra
-unique_shows = netflix_df[["match_title", "category"]].drop_duplicates()
+# --- MERGE RATINGS ---
+imdb_df = imdb_df.merge(ratings_df[["tconst", "numVotes"]], on="tconst", how="left")
+imdb_df["numVotes"] = imdb_df["numVotes"].fillna(0)
 
+# --- CATEGORY -> IMDB TYPES ---
 def get_expected_types(category):
     if isinstance(category, str) and "film" in category.lower():
         return ["movie"]
@@ -42,41 +42,54 @@ def get_expected_types(category):
         return ["tvSeries", "tvMiniSeries"]
     return []
 
-# Keressük meg a tconst-ot az egyedi listára
-results = []
-for _, row in unique_shows.iterrows():
-    expected = get_expected_types(row["category"])
-    
-    candidates = imdb_df[
-        ((imdb_df["match_title"] == row["match_title"]) | 
-         (imdb_df["match_title2"] == row["match_title"])) &
-        (imdb_df["titleType"].isin(expected))
-    ]
-    
-    if not candidates.empty:
-        # Ha több van, a legújabbra tippeljünk (startYear szerint csökkenő)
-        best_tconst = candidates.sort_values("startYear", ascending=False).iloc[0]["tconst"]
-        results.append({"match_title": row["match_title"], "category": row["category"], "imdb_tconst": best_tconst})
+# --- BUILD TITLE INDEX PER CATEGORY TYPE ---
+# We build two separate indexes: one for movies, one for TV
+def build_index(imdb_df, types):
+    subset = imdb_df[imdb_df["titleType"].isin(types)].copy()
+
+    primary = subset[["primaryTitle", "startYear", "tconst", "numVotes"]].copy()
+    primary["match_title"] = primary["primaryTitle"].str.lower().str.strip()
+
+    original = subset[["originalTitle", "startYear", "tconst", "numVotes"]].copy()
+    original["match_title"] = original["originalTitle"].str.lower().str.strip()
+
+    combined = pd.concat([primary, original])[["match_title", "startYear", "tconst", "numVotes"]]
+    combined = combined.drop_duplicates(subset=["match_title", "tconst"])
+
+    return {
+        title: list(zip(group["startYear"], group["tconst"], group["numVotes"]))
+        for title, group in combined.groupby("match_title")
+    }
+
+movie_index = build_index(imdb_df, ["movie"])
+tv_index = build_index(imdb_df, ["tvSeries", "tvMiniSeries"])
+
+# --- MATCHING LOGIC ---
+def find_tconst(match_title, bo_year, category):
+    if isinstance(category, str) and "film" in category.lower():
+        index = movie_index
+    elif isinstance(category, str) and "tv" in category.lower():
+        index = tv_index
     else:
-        results.append({"match_title": row["match_title"], "category": row["category"], "imdb_tconst": None})
+        return None
 
-match_lookup = pd.DataFrame(results)
+    candidates = index.get(match_title, [])
+    valid = [
+        (start_year, tconst, num_votes)
+        for start_year, tconst, num_votes in candidates
+        if (bo_year - 3) <= start_year <= bo_year
+    ]
+    if not valid:
+        return None
+    return max(valid, key=lambda x: x[2])[1]
 
-# --- MERGE BACK TO MAIN DF ---
-# Visszarakjuk az eredeti nagy táblázathoz
-netflix_df = pd.merge(netflix_df, match_lookup, on=["match_title", "category"], how="left")
+netflix_df["imdb_tconst"] = netflix_df.apply(
+    lambda row: find_tconst(row["match_title"], row["bo_year"], row["category"]), axis=1
+)
 
-# --- FINAL CLEANUP & SORT ---
-# Maradjon meg minden, de ahol nincs tconst, ott NaN (vagy üres)
+# --- FINAL CLEANUP ---
 netflix_df = netflix_df[netflix_df["imdb_tconst"].notna()]
-
-# Sorrend visszaállítása (Ország, Hét, Rank szerint)
-netflix_df = netflix_df.sort_values(by=["country_name", "week", "weekly_rank"])
-
-# Segédoszlop törlése
-netflix_df = netflix_df.drop(columns=["match_title"])
+netflix_df = netflix_df.drop(columns=["match_title", "show_title", "bo_year"])
 
 # --- SAVE ---
 netflix_df.to_csv(output_file, index=False)
-
-print(f"Done! Saved {len(netflix_df)} rows to {output_file}")
