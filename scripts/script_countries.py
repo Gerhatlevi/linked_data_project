@@ -77,7 +77,7 @@ def find_tconst(match_title, bo_year, category):
     valid = [
         (start_year, tconst, num_votes)
         for start_year, tconst, num_votes in candidates
-        if (bo_year - 3) <= start_year <= bo_year
+        if start_year <= bo_year
     ]
     if not valid:
         return None
