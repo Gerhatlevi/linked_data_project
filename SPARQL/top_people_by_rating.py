@@ -24,7 +24,7 @@ WHERE {
   
   GRAPH <http://mydata.utwente.org/movies/netflix> {
     ?netRecord a mydata:CountryRecord ;
-               schema1:spatialCoverage "Netherlands" ;
+               schema1:spatialCoverage "Brazil" ;
                ?property ?movie .
   }
   
