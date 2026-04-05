@@ -17,6 +17,7 @@ WHERE {
     GRAPH <http://mydata.utwente.org/movies/netflix> {
         ?list a mydata:GlobalTopList ;
         	  schema1:inLanguage "English";
+              schema1:category "Films" ;
               schema1:Date ?date .
         
         FILTER (YEAR(?date) = 2023)

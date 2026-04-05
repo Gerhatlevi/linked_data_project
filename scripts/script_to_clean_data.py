@@ -19,7 +19,7 @@ def clean_title_basics(input_path, output_path):
 
 def clean_global(input_path, output_path):
     df = pd.read_csv(input_path, low_memory=False)
-    df = df.drop(columns=['is_staggered_launch', 'weekly_hours_viewed', 'cumulative_weeks_in_top_10'], errors='ignore')
+    df = df.drop(columns=['is_staggered_launch', 'weekly_hours_viewed', 'cumulative_weeks_in_top_10', 'episode_launch_details'], errors='ignore')
     df = df.drop(columns=['is_staggered_launch'], errors='ignore')
     df.to_csv(output_path, index=False, encoding='utf-8')
 
@@ -35,4 +35,4 @@ def clean_countries(input_path, output_path):
 
 
 if __name__ == "__main__":
-    clean_countries(path + "countries-with-imdb.csv", path + "countries-with-imdb.csv")
+    clean_global(path + "global-with-imdb2.csv", path + "global-with-imdb2.csv")
