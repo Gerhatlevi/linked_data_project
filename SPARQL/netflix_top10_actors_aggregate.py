@@ -12,21 +12,17 @@ PREFIX swportal: <http://sw-portal.deri.org/ontologies/swportal#>
 PREFIX schema1: <http://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?actorName (COUNT(?list) AS ?weeksInTop10)
+SELECT ?actorName (COUNT(DISTINCT ?date) AS ?weeksInTop10)
 WHERE {
     GRAPH <http://mydata.utwente.org/movies/netflix> {
         ?list a mydata:GlobalTopList ;
         	  schema1:inLanguage "English";
-              schema1:category "Films" ;
               schema1:Date ?date .
         
-        FILTER (YEAR(?date) = 2023)
+        FILTER (YEAR(?date) = 2022)
 
-        VALUES ?pos { 
-            swportal:agent_1 swportal:agent_2 swportal:agent_3 swportal:agent_4 swportal:agent_5
-            swportal:agent_6 swportal:agent_7 swportal:agent_8 swportal:agent_9 swportal:agent_10 
-        }
         ?list ?pos ?movieURI .
+        FILTER(STRSTARTS(STR(?pos), "http://sw-portal.deri.org/ontologies/swportal#agent_"))
     }
     
     ?actor a mydata:Person ;
@@ -59,7 +55,7 @@ try:
         
         ax = sns.barplot(x="Weeks in Top 10", y="Actor", data=df, color='darkblue')
         
-        plt.title("Actors with Most Presence in Netflix Top 10 (2023)", fontsize=16, weight='bold')
+        plt.title("Crew with Most Presence in Netflix Top 10 (2022)", fontsize=16, weight='bold')
         plt.xlabel("", fontsize=12)
         plt.ylabel("", fontsize=12)
         
