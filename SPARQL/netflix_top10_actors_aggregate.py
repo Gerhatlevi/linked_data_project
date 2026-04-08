@@ -55,7 +55,7 @@ try:
         
         ax = sns.barplot(x="Weeks in Top 10", y="Actor", data=df, color='darkblue')
         
-        plt.title("Crew with Most Presence in Netflix Top 10 (2022)", fontsize=16, weight='bold')
+        plt.title("People with Most Presence in Netflix Top 10 (2022)", fontsize=16, weight='bold')
         plt.xlabel("", fontsize=12)
         plt.ylabel("", fontsize=12)
         
